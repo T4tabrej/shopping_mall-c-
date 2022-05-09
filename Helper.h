@@ -195,10 +195,13 @@ class Helper {
                         goto m;
                     }
                     else{
-                    data.open("database.txt",ios::app|ios::out);
+                    
+                    fstream data("database.txt", ios::out | ios::app);
                     data<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
                  cout<<"\t\t\t\t|               Data Inserted     :\n";
-                    data.close();
+                // data.open("database.txt",ios::app|ios::out);  
+                //     data<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
+                //     data.close();
                     }
                     
                     
