@@ -6,4 +6,4 @@ int main(){
     h1.menu();
 }
 
-//git push -u origin main to update
+//git push origin main
