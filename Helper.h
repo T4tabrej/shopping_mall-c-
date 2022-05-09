@@ -207,15 +207,7 @@ class Helper {
                     
                 }
 
-                // fstream data("database.txt", ios::out | ios::app);
-                // if (!data)
-                // {
-                //     cout << "\nFailed to open data.csv / data.csv file not found!";
-                // }
-                // else{
-                //     data<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
-                // }
-                
+              
                 
                                                                 
                 
