@@ -94,7 +94,7 @@ class Helper {
                 switch (choice)
                 {
                 case 1:
-                    // add();
+                    add();
                     break;
                  case 2:
                     // edit_product();
@@ -148,7 +148,77 @@ class Helper {
 
             }
         //ending of buyer
-            void add();
+        //starting of add
+            void add(){
+                m:
+                    fstream data;
+                    int c,token=0;
+                    float p,d;
+                    string n;
+                cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
+                cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+                cout<<"\t\t\t\t|                    Add product                       |\t\t\t\t\n";
+                cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+                cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
+                cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+                cout<<"\t\t\t\t|                Product Code of the product : ";
+                cin>>pcode;
+                cout<<"\t\t\t\t|                Name of the product         :";
+                cin>>pname;
+                cout<<"\t\t\t\t|                Price of the product        :";
+                cin>>price;
+                cout<<"\t\t\t\t|                Discount on the product     :";
+                cin>>dis;
+                cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
+                data.open("database.txt",ios::in);
+                if (!data)
+                {
+                    data.open("database.txt",ios::app|ios::out);
+                    data<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
+                 cout<<"\t\t\t\t|               Data Inserted     :\n";
+                    data.close();
+                }
+                else{
+                    data>>c>>n>>p>>d;
+                    while (!data.eof())
+                    {
+                        if(c==pcode){
+                            token++;
+
+                        }
+                         data>>c>>n>>p>>d;
+                    }
+                    if (token==1)
+                    {
+                        //if duplicate value found got again input
+                cout<<"\t\t\t\t|        Dulicate value found please enter another code     :\n";
+                        goto m;
+                    }
+                    else{
+                    data.open("database.txt",ios::app|ios::out);
+                    data<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
+                 cout<<"\t\t\t\t|               Data Inserted     :\n";
+                    data.close();
+                    }
+                    
+                    
+                }
+
+                // fstream data("database.txt", ios::out | ios::app);
+                // if (!data)
+                // {
+                //     cout << "\nFailed to open data.csv / data.csv file not found!";
+                // }
+                // else{
+                //     data<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
+                // }
+                
+                
+                                                                
+                
+
+            }
+         //ending of add
             void edit();
             void rem();
             void list();
