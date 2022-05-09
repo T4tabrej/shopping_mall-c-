@@ -50,7 +50,7 @@ class Helper {
                     
                     break;
                     case 2:
-                    //   buyer();
+                      buyer();
                       break;
                     case 3:
                         exit(0);
@@ -113,7 +113,41 @@ class Helper {
 
             }
          //ending of Admin
-            void buyer();
+         //starting of buyer
+            void buyer(){
+
+                int choice;
+                cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
+                cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+                cout<<"\t\t\t\t|                    Buyer  Menu                       |\t\t\t\t\n";
+                cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+                cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
+                cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+                cout<<"\t\t\t\t|                1) Buy Product                        |\t\t\t\t\n";
+                cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+                cout<<"\t\t\t\t|                2) Goto Main Menu                     |\t\t\t\t\n";
+                cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+                cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+                cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
+                cout<<"\t\t\t\t| Please Select Choice :";
+                cin>>choice;
+                switch (choice)
+                {
+                case 1:
+                    //receipt();
+                    break;
+                 case 2:
+                   menu();
+                    break;
+                
+                
+                default:
+                cout<<"\t\t\t\t|                Please select from given oprion       |\t\t\t\t\n";
+                    break;
+                }
+
+            }
+        //ending of buyer
             void add();
             void edit();
             void rem();
