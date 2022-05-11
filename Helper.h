@@ -97,7 +97,7 @@ class Helper {
                     add();
                     break;
                  case 2:
-                    // edit_product();
+                    edit();
                     break;
                  case 3:
                     // delete();
@@ -214,7 +214,72 @@ class Helper {
 
             }
          //ending of add
-            void edit();
+         //starting of edit 
+            void edit(){
+                fstream data,data1;
+                int pkey,c;
+                int token=0;
+                float p,d;
+                string n;
+            cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
+            cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+            cout<<"\t\t\t\t|                   Modify The Product                 |\t\t\t\t\n";
+            cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+            cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
+            cout<<"\t\t\t\t|                Product Code of the product : ";
+            cin>>pkey;
+            data.open("database.txt");
+            if (!data)
+            {
+            cout<<"\t\t\t\t|        File Doesn't Exist     :\n";
+            }
+            else{
+                data1.open("database1.txt",ios::app|ios::out);
+                //fetching data from old file
+                data>>pcode>>pname>>price>>dis;
+                while (!data.eof())
+                {
+                   if (pkey==pcode)
+                   {
+                cout<<"\t\t\t\t|                Product Code of the product :";
+                cin>>c;
+                cout<<"\t\t\t\t|                Name of the product         :";
+                cin>>n;
+                cout<<"\t\t\t\t|                Price of the product        :";
+                cin>>p;
+                cout<<"\t\t\t\t|                Discount on the product     :";
+                cin>>d;
+                data1<<" "<<c<<" "<<n<<" "<<p<<" "<<d<<"\n";
+                cout<<"\t\t\t\t|               Record Edited     :\n";
+                token++;
+                      
+                   }
+                   else{
+                       //if product key is not matched not match just copy all the data from data to data1
+                       data1<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
+                   }
+
+                    data>>pcode>>pname>>price>>dis;
+                }
+                data.close();
+                data1.close();
+                //finally remove old file and rename new file to old file
+                remove("database.txt");
+                rename("database1.txt","database.txt");
+                if(token==0){
+                cout<<"\t\t\t\t|          Product not found     :";
+                
+                }
+                
+
+            }
+            
+
+
+
+            
+            }
+            //ending of edit 
             void rem();
             void list();
             void receipt();

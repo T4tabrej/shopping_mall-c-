@@ -7,3 +7,4 @@ int main(){
 }
 // git commit -a -m"adding"
 //git push origin main1
+//video 36 min
