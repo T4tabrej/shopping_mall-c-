@@ -100,7 +100,7 @@ class Helper {
                     edit();
                     break;
                  case 3:
-                    // delete();
+                    rem();
                     break;
                 case 4:
                     menu();
@@ -199,6 +199,7 @@ class Helper {
                     fstream data("database.txt", ios::out | ios::app);
                     data<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
                  cout<<"\t\t\t\t|               Data Inserted     :\n";
+                //  goto m;
                 // data.open("database.txt",ios::app|ios::out);  
                 //     data<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
                 //     data.close();
@@ -280,7 +281,56 @@ class Helper {
             
             }
             //ending of edit 
-            void rem();
+
+
+            //starting of remove 
+            void rem(){
+                fstream data,data1;
+                int pkey,token=0;
+            cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
+            cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+            cout<<"\t\t\t\t|                   Remove Product                     |\t\t\t\t\n";
+            cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+            cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
+            cout<<"\t\t\t\t|                Product Code of the product : ";
+            cin>>pkey;
+            data.open("datbase.txt");
+            if (!data)
+            {
+            cout<<"\t\t\t\t|          Database not Found     :";
+            }
+            else{
+                data1.open("database1.txt",ios::app|ios::out);
+
+                 data>>pcode>>pname>>price>>dis;
+                 while (!data.eof())
+                 {
+                       if (pkey==pcode)
+                       {
+            cout<<"\t\t\t\t|         Product Deleted SuccesFully     :";
+            token++;
+                       }
+                       else{
+                        //if product key is not matched not match just copy all the data from data to data1
+                       data1<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
+                       }
+                       
+                 }
+                 
+
+            }
+            data.close();
+            data1.close();
+            remove("database.txt");
+            rename("database1.txt","database.txt");
+            if(token==0){
+            cout<<"\t\t\t\t|         Product Not Found     :";
+            }
+            
+
+
+            }
+            //ending of remove 
             void list();
             void receipt();
 };

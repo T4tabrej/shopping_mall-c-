@@ -6,5 +6,5 @@ int main(){
     h1.menu();
 }
 // git commit -a -m"adding"
-//git push origin main1
+//git push origin main
 //video 36 min
