@@ -134,7 +134,8 @@ class Helper {
                 switch (choice)
                 {
                 case 1:
-                    //receipt();
+                   list();
+                // cout<<"bye";
                     break;
                  case 2:
                    menu();
@@ -294,7 +295,7 @@ class Helper {
             cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
             cout<<"\t\t\t\t|                Product Code of the product : ";
             cin>>pkey;
-            data.open("datbase.txt");
+            data.open("database.txt");
             if (!data)
             {
             cout<<"\t\t\t\t|          Database not Found     :";
@@ -314,6 +315,7 @@ class Helper {
                         //if product key is not matched not match just copy all the data from data to data1
                        data1<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<"\n";
                        }
+                       data>>pcode>>pname>>price>>dis;
                        
                  }
                  
@@ -321,7 +323,7 @@ class Helper {
             }
             data.close();
             data1.close();
-            remove("database.txt");
+            // remove("database.txt");
             rename("database1.txt","database.txt");
             if(token==0){
             cout<<"\t\t\t\t|         Product Not Found     :";
@@ -331,6 +333,29 @@ class Helper {
 
             }
             //ending of remove 
-            void list();
+
+            //starting of list 
+            void list(){
+                fstream data;
+                data.open("database.txt",ios::in);
+            cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
+            cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+            cout<<"\t\t\t\t|                         Products                     |\t\t\t\t\n";
+            cout<<"\t\t\t\t|                                                      |\t\t\t\t\n";
+            cout<<"\t\t\t\t|______________________________________________________|\t\t\t\t\n";
+            cout<<"\t\t\t\t|product Key|\t|product Name|\t|product Price| \n";
+             data>>pcode>>pname>>price>>dis;
+            // cout<<"\t\t\t\t"<<pcode<<"\t\t\t\t"<<pname<<"\t\t\t\t"<<price<<"\t\t\t\t "; 
+            while (!data.eof())
+            {
+            cout<<"\t\t\t\t\t"<<pcode<<"\t\t"<<pname<<"\t\t"<<price<<endl; 
+            data>>pcode>>pname>>price>>dis;
+            }
+            
+            
+
+
+            }
+            // ending of list
             void receipt();
 };
